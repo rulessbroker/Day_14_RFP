@@ -1,5 +1,8 @@
 package com.bridgelabz.LinkedList;
 
+import com.practice.workshop.K;
+import com.practice.workshop.Node;
+
 public class LinkedList<K> {
 
 	private Node<K> head;
@@ -36,6 +39,22 @@ public class LinkedList<K> {
 			this.tail = node;
 		}
 	}
+	
+	public void insert(K key) {
+		Node<K> node = new Node<>(key);
+		node.setNext(tail);
+		head.setNext(node);
+	}
+	
+	public void insertAfter(K previousData, K data) {
+		Node newNode = new Node(data);
+		Node<K> tempNode = head;
+		while (!tempNode.getData().equals(previousData)) {
+			tempNode = tempNode.getNext();
+		}
+		newNode.setNext(tempNode.getNext());
+		tempNode.setNext(newNode);
+	}
 
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
@@ -44,9 +63,13 @@ public class LinkedList<K> {
 //		linkedList.add(30);
 //		linkedList.add(56);
 		
+		
+		
 		linkedList.append(56);
-		linkedList.append(30);
+//		linkedList.append(30);
 		linkedList.append(70);
+		
+		linkedList.insertAfter(56, 30);
 
 		linkedList.print();
 	}
