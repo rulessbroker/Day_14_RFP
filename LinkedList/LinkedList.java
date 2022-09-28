@@ -1,5 +1,8 @@
 package com.bridgelabz.LinkedList;
 
+import com.practice.workshop.K;
+import com.practice.workshop.Node;
+
 public class LinkedList<K> {
 
 	private Node<K> head;
@@ -76,6 +79,19 @@ public class LinkedList<K> {
 		}
 		return tempNode;
 	}
+	
+	public void delete(K deleteData) {
+		Node<K> tempNode = head;
+		while (!tempNode.getData().equals(deleteData)) {
+			tempNode = tempNode.getNext();
+		}
+		Node<K> previousNode = head;
+		while (!previousNode.getNext().getData().equals(deleteData)) {
+			previousNode = previousNode.getNext();
+		}
+		previousNode.setNext(tempNode.getNext());
+	}
+
 
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
@@ -90,7 +106,9 @@ public class LinkedList<K> {
 		
 		linkedList.insertAfter(30, 40);
 		
+		linkedList.print();
 		
+		linkedList.delete(40);
 
 //		System.out.println(linkedList.popLast());
 
