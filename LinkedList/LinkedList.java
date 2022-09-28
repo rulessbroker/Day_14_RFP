@@ -61,23 +61,35 @@ public class LinkedList<K> {
 		this.head = head.getNext();
 		return deleteData;
 	}
+	
+	public K popLast() {
+		Node tempNode = head;
+		while (!(tempNode.getNext().equals(tail))) {
+			tempNode = tempNode.getNext();
+		}
+		K deleteData = (K) tempNode.getNext().getData();
+		this.tail = tempNode;
+		return deleteData;
+	}
 
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
 
-//		linkedList.add(70);
-//		linkedList.add(30);
-//		linkedList.add(56);
+		linkedList.add(70);
+		linkedList.add(30);
+		linkedList.add(56);
 		
+		System.out.println(linkedList.popLast());
 		
-		
-		linkedList.append(56);
+//		linkedList.append(56);
 //		linkedList.append(30);
-		linkedList.append(70);
+//		linkedList.append(70);
 		
-		linkedList.insertAfter(56, 30);
+//		linkedList.insertAfter(56, 30);
 		
-		System.out.println(linkedList.pop());
+		
+		
+//		System.out.println(linkedList.pop());
 
 		linkedList.print();
 	}
