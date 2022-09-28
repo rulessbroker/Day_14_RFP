@@ -26,6 +26,17 @@ public class LinkedList<K> {
 
 	}
 
+	public void append(K key) {
+		Node<K> node = new Node<>(key);
+		if (head == null) {
+			this.head = node;
+			this.tail = node;
+		} else {
+			this.tail.setNext(node);
+			this.tail = node;
+		}
+	}
+
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
 
