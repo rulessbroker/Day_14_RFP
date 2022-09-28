@@ -1,8 +1,5 @@
 package com.bridgelabz.LinkedList;
 
-import com.practice.workshop.K;
-import com.practice.workshop.Node;
-
 public class LinkedList<K> {
 
 	private Node<K> head;
@@ -39,13 +36,13 @@ public class LinkedList<K> {
 			this.tail = node;
 		}
 	}
-	
+
 	public void insert(K key) {
 		Node<K> node = new Node<>(key);
 		node.setNext(tail);
 		head.setNext(node);
 	}
-	
+
 	public void insertAfter(K previousData, K data) {
 		Node newNode = new Node(data);
 		Node<K> tempNode = head;
@@ -55,13 +52,13 @@ public class LinkedList<K> {
 		newNode.setNext(tempNode.getNext());
 		tempNode.setNext(newNode);
 	}
-	
+
 	public K pop() {
 		K deleteData = head.getData();
 		this.head = head.getNext();
 		return deleteData;
 	}
-	
+
 	public K popLast() {
 		Node tempNode = head;
 		while (!(tempNode.getNext().equals(tail))) {
@@ -72,23 +69,31 @@ public class LinkedList<K> {
 		return deleteData;
 	}
 
+	public Node<K> search(K searchData) {
+		Node tempNode = head;
+		while (!(tempNode.getData().equals(searchData))) {
+			tempNode = tempNode.getNext();
+		}
+		return tempNode;
+	}
+
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
 
 		linkedList.add(70);
 		linkedList.add(30);
 		linkedList.add(56);
-		
-		System.out.println(linkedList.popLast());
-		
+
+		System.out.println(linkedList.search(30).getData());
+
+//		System.out.println(linkedList.popLast());
+
 //		linkedList.append(56);
 //		linkedList.append(30);
 //		linkedList.append(70);
-		
+
 //		linkedList.insertAfter(56, 30);
-		
-		
-		
+
 //		System.out.println(linkedList.pop());
 
 		linkedList.print();
