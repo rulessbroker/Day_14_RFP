@@ -55,6 +55,12 @@ public class LinkedList<K> {
 		newNode.setNext(tempNode.getNext());
 		tempNode.setNext(newNode);
 	}
+	
+	public K pop() {
+		K deleteData = head.getData();
+		this.head = head.getNext();
+		return deleteData;
+	}
 
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
@@ -70,6 +76,8 @@ public class LinkedList<K> {
 		linkedList.append(70);
 		
 		linkedList.insertAfter(56, 30);
+		
+		System.out.println(linkedList.pop());
 
 		linkedList.print();
 	}
