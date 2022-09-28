@@ -85,14 +85,18 @@ public class LinkedList<K> {
 		linkedList.add(56);
 
 		System.out.println(linkedList.search(30).getData());
+		
+		linkedList.print();
+		
+		linkedList.insertAfter(30, 40);
+		
+		
 
 //		System.out.println(linkedList.popLast());
 
 //		linkedList.append(56);
 //		linkedList.append(30);
 //		linkedList.append(70);
-
-//		linkedList.insertAfter(56, 30);
 
 //		System.out.println(linkedList.pop());
 
